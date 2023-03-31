@@ -1,0 +1,18 @@
+.backdrop-container {
+    position: fixed;
+    inset: 0;
+    background-color: #32373c80;
+    z-index: 999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.backdrop-container .content-container {
+    max-width: 70vw;
+    margin-top: 40px;
+    background-color: #fff;
+    max-height: 80vh;
+    overflow-y: scroll;
+}
