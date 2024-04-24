@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ReactPortal from "./components/ReactModal/ReactModal";
+import ReactPortal from "./components/ReactModal/ReactPortal/ReactPortal";
 
 function App() {
     const [modal, setModal] = useState(false);
