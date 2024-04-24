@@ -1,0 +1,116 @@
+:root {
+    --clr-text: #444;
+    --clr-bg: #fff;
+    --clr-disabled: gray;
+}
+.custom__dropdown {
+    position: relative;
+    font-family: "Courier New", Courier, monospace;
+}
+.custom__dropdown-disable {
+    background-color: var(--clr-disabled);
+}
+.custom__dropdown__button {
+    user-select: none;
+    text-transform: capitalize;
+    cursor: pointer;
+    z-index: 1;
+
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+
+    font-size: 15px;
+    font-family: inherit;
+    line-height: 18px;
+    color: var(--clr-text);
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid #e6eaed;
+    border-radius: 4px;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 40px;
+}
+.custom__dropdown-disable .custom__dropdown__button {
+    pointer-events: none;
+    cursor: not-allowed;
+    background-color: rgb(167, 167, 167);
+    color: rgb(95, 95, 95);
+}
+.custom__dropdown__button::after {
+    --clr-arrow: #5e5e5e;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: transparent;
+    text-indent: -9999px;
+    border-top: 2px solid var(--clr-arrow, black);
+    border-left: 2px solid var(--clr-arrow, black);
+    transition: all 250ms ease-in-out;
+    text-decoration: none;
+    color: transparent;
+
+    top: 50%;
+    transform: translateY(-70%) rotate(-135deg);
+    right: 15px;
+}
+
+.custom__dropdown-disable .custom__dropdown__button::after {
+    color: rgb(124, 124, 124);
+}
+
+.custom__dropdown__button_active::after {
+    transform: translateY(-70%) rotate(-310deg);
+}
+.custom__dropdown__list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    overflow: hidden;
+
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 100%;
+
+    box-shadow: 0px 10px 20px 0px #88919d4d;
+    border: 1px solid #e6eaed;
+    border-radius: 4px;
+    background: #ffffff;
+    font-family: inherit;
+
+    z-index: -1;
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 200ms ease;
+}
+.custom__dropdown__list_visible {
+    opacity: 1;
+    z-index: 1;
+    visibility: visible;
+}
+.custom__dropdown__list-item {
+    text-transform: capitalize;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 18px;
+    color: #444444;
+    transition: 200ms ease;
+}
+.custom__dropdown__list-item_active {
+    background: #ddd;
+}
+.custom__dropdown__list-item:hover {
+    background: #eee;
+}
+.custom__dropdown__input_hidden {
+    display: none;
+}

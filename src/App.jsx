@@ -1,31 +1,42 @@
 import { useState } from "react";
-import ReactPortal from "./components/ReactModal/ReactPortal/ReactPortal";
+import CustomSelectBox from "./components/CustomSelectBox/CustomSelectBox";
+import ReactModal from "./components/ReactModal/ReactModal";
 
 function App() {
-    const [modal, setModal] = useState(false);
-    const handleCloseModal = () => {
-        setModal(false);
+    const [dropDownValue, setDropDownValue] = useState("3");
+
+    const handleValueChange = (item) => {
+        setDropDownValue(item.value);
     };
 
-    return (
-        <div className="App">
-            <button className="btn" onClick={() => setModal((prev) => !prev)}>
-                Toggle Modal
-            </button>
+    const data = [
+        {
+            label: "we",
+            value: "1",
+        },
+        {
+            label: "are",
+            value: "2",
+        },
+        {
+            label: "some",
+            value: "3",
+        },
+        {
+            label: "values",
+            value: "4",
+        },
+    ];
 
-            {modal && (
-                <ReactPortal onClose={handleCloseModal}>
-                    <section className="content">
-                        <h2>I am Modal</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eius,
-                            quae sunt et iste voluptatem, magnam earum at magni autem, commodi quis
-                            adipisci eveniet? Corrupti eos molestias cupiditate delectus beatae.
-                        </p>
-                    </section>
-                </ReactPortal>
-            )}
-        </div>
+    return (
+        <>
+            <ReactModal />
+            <CustomSelectBox
+                defaultValue={dropDownValue}
+                data={data}
+                onChange={handleValueChange}
+            />
+        </>
     );
 }
 
