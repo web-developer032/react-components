@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CustomSelectBox from "./components/CustomSelectBox/CustomSelectBox";
 import ReactModal from "./components/ReactModal/ReactModal";
+import DateTime from "./components/CustomDateTime/DateTime";
 
 function App() {
     const [dropDownValue, setDropDownValue] = useState("3");
@@ -36,6 +37,7 @@ function App() {
                 data={data}
                 onChange={handleValueChange}
             />
+            <DateTime />
         </>
     );
 }
